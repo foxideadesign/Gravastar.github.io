@@ -425,7 +425,7 @@ img {
   }
 
   .intro-qr p {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   .intro-divider {
@@ -455,3 +455,4 @@ img {
     grid-template-columns: 1fr;
   }
 }
+
