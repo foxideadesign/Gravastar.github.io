@@ -15,7 +15,7 @@ body {
   font-family: "Pretendard", sans-serif;
   background:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("./img/bg.jpg") center center / cover no-repeat;
+    url("https://gravastar.kr/_images/display/bg.jpg") center center / cover no-repeat;
 }
 
 .en,
@@ -455,3 +455,4 @@ img {
     grid-template-columns: 1fr;
   }
 }
+
