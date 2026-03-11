@@ -415,7 +415,6 @@ img {
     font-size: 1.5rem;
     line-height: 1.7;
     word-break: keep-all;
-    width: 94%;
     margin: 0 auto;
   }
 
@@ -455,5 +454,6 @@ img {
     grid-template-columns: 1fr;
   }
 }
+
 
 
