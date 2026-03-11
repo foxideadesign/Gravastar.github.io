@@ -29,9 +29,6 @@ body > h1 {
   max-width: 600px;
 }
 
-body > h1 > img {
-}
-
 button,
 a {
   font: inherit;
@@ -278,15 +275,20 @@ img {
 }
 
 .more-btn {
-  min-width: 72px;
-  margin-top: 14px;
-  padding: 5px 14px;
-  border: 1px solid #666;
+  max-width: 300px;
+  margin-top: 90px;
+  padding: 19px 49px;
+  border: 2px solid #222;
   border-radius: 999px;
   background: #fff;
-  color: #111;
-  font-size: 12px;
+  color: #222;
+  font-size: 2rem;
   cursor: pointer;
+}
+
+.more-btn:hover {
+  background-color: #222;
+  color: #fff;
 }
 
 .dummy-box {
@@ -382,7 +384,7 @@ img {
   }
 
   .menu-head__title {
-    font-size: 1.25rem;
+    font-size: 2.5rem;
   }
 
   .menu-head__icon {
