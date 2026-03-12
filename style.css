@@ -683,7 +683,7 @@ img {
 
   .category-tabs {
     gap: 12px;
-    margin-bottom: 30px;
+    margin: 30px 0;
   }
 
   .category-tab {
@@ -695,16 +695,16 @@ img {
 
   .sub-tabs-wrap::before {
     max-width: 300px;
-    margin-bottom: 24px;
+    margin: 40px auto;
   }
 
   .sub-tabs-title {
-    margin-bottom: 18px;
+    margin-bottom: 30px;
     font-size: 30px;
   }
 
   .sub-tabs {
-    gap: 10px 18px;
+    gap: 10px 30px;
   }
 
   .sub-tab {
@@ -1038,4 +1038,3 @@ img {
     grid-template-columns: 1fr;
   }
 }
-
