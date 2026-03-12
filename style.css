@@ -1002,7 +1002,7 @@ img {
   }
 
   .compare-spec {
-    margin-top: 36px;
+    margin-top: 100px;
   }
 
   .compare-spec__title {
@@ -1038,3 +1038,4 @@ img {
     grid-template-columns: 1fr;
   }
 }
+
