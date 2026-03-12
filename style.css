@@ -868,10 +868,6 @@ img {
   .compare-spec__product span {
     font-size: 14px;
   }
-
-  .compare-spec__product img {
-    max-width: 150px;
-  }
 }
 
 @media (max-width: 900px) {
@@ -1023,10 +1019,6 @@ img {
   .compare-spec__product {
     gap: 10px;
   }
-
-  .compare-spec__product img {
-    max-width: 300px;
-  }
 }
 
 @media (max-width: 480px) {
@@ -1038,3 +1030,4 @@ img {
     grid-template-columns: 1fr;
   }
 }
+
