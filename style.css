@@ -664,7 +664,7 @@ img {
 
 .compare-spec__product img {
   width: 100%;
-  max-width: 220px;
+  max-width: 300px;
   height: auto;
   object-fit: contain;
 }
@@ -1025,7 +1025,7 @@ img {
   }
 
   .compare-spec__product img {
-    max-width: 120px;
+    max-width: 300px;
   }
 }
 
