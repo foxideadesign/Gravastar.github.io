@@ -19,6 +19,10 @@ body {
       no-repeat;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 .en,
 .en * {
   font-family: "Barlow", sans-serif;
@@ -114,7 +118,6 @@ img {
   transform-origin: center;
 }
 
-/* 열렸을 때 */
 .menu-block.is-open {
   background: #fff;
 }
@@ -133,7 +136,6 @@ img {
   transform: rotate(45deg);
 }
 
-/* 같은 박스 내부에서 늘어나는 본문 */
 .menu-body {
   max-height: 0;
   overflow: hidden;
@@ -145,11 +147,6 @@ img {
   color: #111;
 }
 
-.menu-block.is-open .menu-body {
-  max-height: 5000px;
-}
-
-/* 콘텐츠 */
 .intro-card {
   text-align: center;
   padding: 20px;
@@ -217,7 +214,6 @@ img {
   font-weight: 700;
 }
 
-/* shorts / reels grid */
 .video-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -234,7 +230,6 @@ img {
   background: #d9d9d9;
 }
 
-/* youtube shorts */
 .video-item > iframe {
   position: absolute;
   inset: 0;
@@ -245,7 +240,6 @@ img {
   background: #000;
 }
 
-/* instagram reels embed */
 .video-item > .instagram-media {
   max-width: 100% !important;
   min-width: 0 !important;
@@ -256,13 +250,11 @@ img {
   overflow: hidden !important;
 }
 
-/* instagram 내부 렌더링 보정 */
 .video-item > .instagram-media iframe,
 .video-item > .instagram-media > div {
   width: 100% !important;
 }
 
-/* 카드형 링크를 쓸 때도 대응 가능 */
 .video-item > a,
 .video-item > img {
   display: block;
@@ -291,36 +283,15 @@ img {
   color: #fff;
 }
 
-.dummy-box {
-  padding: 28px 16px;
-  text-align: center;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-/* 고객가이드 링크형 메뉴 */
-.menu-block--link .menu-head--link {
-  display: flex;
-}
-
-.menu-block--link .menu-head--link:hover {
-  background: rgba(0, 0, 0, 0.18);
-}
-
 .menu-block--link .menu-head__icon-svg {
   transform: none;
 }
 
-/* =========================
-   menu-body 공통코드는 그대로 사용
-   아래부터 제품 탭 전용 스타일
-========================= */
-
+/* 제품 탭 */
 .product-tabs {
   width: 100%;
 }
 
-/* 1차 탭 */
 .category-tabs {
   display: flex;
   flex-wrap: wrap;
@@ -358,7 +329,6 @@ img {
   border-color: #222;
 }
 
-/* 1차 패널 */
 .category-panel {
   display: none;
 }
@@ -367,7 +337,6 @@ img {
   display: block;
 }
 
-/* 2차 탭 헤더 */
 .sub-tabs-wrap {
   text-align: center;
   margin-bottom: 22px;
@@ -430,7 +399,6 @@ img {
   background: #111;
 }
 
-/* 2차 콘텐츠 */
 .sub-contents {
   margin-top: 24px;
 }
@@ -443,7 +411,6 @@ img {
   display: block;
 }
 
-/* 제품 리스트 */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -455,6 +422,7 @@ img {
   display: block;
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 
 .product-card__thumb {
@@ -483,7 +451,154 @@ img {
   word-break: keep-all;
 }
 
-/* 태블릿 이상 */
+/* 팝업 */
+.product-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+}
+
+.product-modal.is-open {
+  display: block;
+}
+
+.product-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.product-modal__dialog {
+  position: relative;
+  z-index: 2;
+  width: min(92vw, 1120px);
+  max-height: 90vh;
+  margin: 5vh auto;
+  padding: 28px 28px 24px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+.product-modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.06);
+  color: #111;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.product-modal__close:hover {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.product-modal__header {
+  padding-right: 44px;
+  margin-bottom: 16px;
+}
+
+.product-modal__title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.3;
+  color: #111;
+}
+
+.product-modal__viewer {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) 64px;
+  align-items: center;
+  gap: 16px;
+}
+
+.product-modal__image-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.product-modal__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #f5f5f5;
+}
+
+.product-modal__nav {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  font-size: 36px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.product-modal__nav:hover {
+  transform: scale(1.06);
+}
+
+.product-modal__footer {
+  margin-top: 18px;
+}
+
+.product-modal__count {
+  margin-bottom: 14px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: #444;
+}
+
+.product-modal__thumbs {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.product-modal__thumb {
+  border: 2px solid transparent;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f3f3f3;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
+  padding: 0;
+}
+
+.product-modal__thumb:hover {
+  transform: translateY(-2px);
+}
+
+.product-modal__thumb.is-active {
+  border-color: #111;
+}
+
+.product-modal__thumb img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* 반응형 */
 @media (min-width: 768px) {
   .menu-body__inner {
     padding: 18px 16px 24px;
@@ -533,7 +648,6 @@ img {
   }
 }
 
-/* PC */
 @media (min-width: 1024px) {
   .menu-body__inner {
     padding: 22px 24px 30px;
@@ -584,7 +698,6 @@ img {
   }
 }
 
-/* 태블릿 */
 @media (max-width: 1280px) {
   .menu-wrap {
     padding: 0 24px;
@@ -638,7 +751,6 @@ img {
   }
 }
 
-/* 모바일 */
 @media (max-width: 768px) {
   body > h1 {
     margin: 50px auto;
@@ -722,10 +834,50 @@ img {
     font-size: 0.95rem;
     border: 1px solid #222;
   }
+
+  .product-modal__dialog {
+    width: calc(100vw - 24px);
+    margin: 6vh auto;
+    padding: 18px 14px 16px;
+    border-radius: 16px;
+  }
+
+  .product-modal__title {
+    font-size: 20px;
+  }
+
+  .product-modal__viewer {
+    grid-template-columns: 42px minmax(0, 1fr) 42px;
+    gap: 10px;
+  }
+
+  .product-modal__image-wrap {
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+  }
+
+  .product-modal__nav {
+    width: 42px;
+    height: 42px;
+    font-size: 28px;
+  }
+
+  .product-modal__thumbs {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+  }
+
+  .product-modal__thumb {
+    border-radius: 8px;
+  }
 }
 
 @media (max-width: 480px) {
   .video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-grid {
     grid-template-columns: 1fr;
   }
 }
